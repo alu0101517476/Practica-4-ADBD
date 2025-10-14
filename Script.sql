@@ -238,5 +238,5 @@ DELETE FROM Pedido WHERE id = 'PED003';
 DELETE FROM Producto WHERE codigo_producto = 'P005';
 
 -- 5. Eliminar un vivero (borra en cascada sus zonas y empleados)
-
 DELETE FROM Vivero WHERE nombre_vivero = 'Vivero Oeste';
+

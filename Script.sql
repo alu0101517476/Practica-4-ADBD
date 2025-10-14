@@ -232,10 +232,10 @@ DELETE FROM Cliente WHERE dni = '11111111A';
 DELETE FROM Zona WHERE nombre_zona = 'Zona B';
 
 -- 3. Eliminar un pedido (borra también los productos asociados)
-DELETE FROM Pedido WHERE id = 3;
+DELETE FROM Pedido WHERE id = 'PED003';
 
 -- 4. Intentar eliminar un producto con pedidos asociados 
-DELETE FROM Producto WHERE codigo_producto = 1;
+DELETE FROM Producto WHERE codigo_producto = 'P005';
 
 -- 5. Eliminar un vivero (borra en cascada sus zonas y empleados)
 

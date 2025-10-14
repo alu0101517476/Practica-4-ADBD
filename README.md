@@ -30,6 +30,6 @@ En este repositorio se encuentra:
 
 - PNG del esquema ER de la base de datos
 
-- PDF con todas las operaciones SELECT * de todas las tablas de la base de datos
+- PDF con todas las operaciones SELECT * de todas las tablas de la base de datos (Imágenes sacadas antes de hacer operaciones DELETE)
 
 - PDF con operaciones de DELETE de la base de datos

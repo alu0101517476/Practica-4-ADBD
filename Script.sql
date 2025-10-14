@@ -1,3 +1,5 @@
+CREATE DATABASE viveros;
+
 -- ======================================
 -- LIMPIEZA PREVIA (DROP TABLES)
 -- ======================================
@@ -232,8 +234,9 @@ DELETE FROM Zona WHERE nombre_zona = 'Zona B';
 -- 3. Eliminar un pedido (borra también los productos asociados)
 DELETE FROM Pedido WHERE id = 3;
 
--- 4. Intentar eliminar un producto con pedidos asociados (bloqueado por RESTRICT si existe relación activa)
--- DELETE FROM Producto WHERE codigo_producto = 1;
+-- 4. Intentar eliminar un producto con pedidos asociados 
+DELETE FROM Producto WHERE codigo_producto = 1;
 
 -- 5. Eliminar un vivero (borra en cascada sus zonas y empleados)
+
 DELETE FROM Vivero WHERE nombre_vivero = 'Vivero Oeste';

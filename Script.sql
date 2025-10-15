@@ -1,3 +1,7 @@
+-- ======================================
+-- CREACIÓN DE BASE DE DATOS
+-- ======================================
+DROP DATABASE IF EXISTS viveros;
 CREATE DATABASE viveros;
 
 -- ======================================
@@ -108,7 +112,7 @@ CREATE TABLE Pedido (
     FOREIGN KEY (dni_empleado)
         REFERENCES Empleado(dni)
         ON UPDATE CASCADE
-        ON DELETE CASCADE,
+        ON DELETE SET NULL,
     FOREIGN KEY (dni_cliente)
         REFERENCES Cliente(dni)
         ON UPDATE CASCADE
@@ -136,14 +140,13 @@ CREATE TABLE Producto_Pedido (
 -- ======================================
 CREATE TABLE Tajinaste_Plus (
     id_cliente CHAR(9) PRIMARY KEY,
-    bonificaciones VARCHAR(200) NOT NULL,
+    bonificaciones DECIMAL(8,2) NOT NULL CHECK (bonificaciones >= 0),
     fecha_suscripcion DATE NOT NULL,
     FOREIGN KEY (id_cliente)
         REFERENCES Cliente(dni)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
-
 
 -- ======================================
 -- INSERCIÓN DE DATOS
@@ -222,7 +225,7 @@ INSERT INTO Tajinaste_Plus (id_cliente, bonificaciones, fecha_suscripcion) VALUE
 ('55555555E',12.00,'2024-05-25');
 
 -- ======================================
--- EJEMPLOS DE OPERACIONES DELETE
+-- PRUEBAS DELETE
 -- ======================================
 
 -- 1. Eliminar un cliente (borra también su pedido y su suscripción)
@@ -234,9 +237,8 @@ DELETE FROM Zona WHERE nombre_zona = 'Zona B';
 -- 3. Eliminar un pedido (borra también los productos asociados)
 DELETE FROM Pedido WHERE id = 'PED003';
 
--- 4. Intentar eliminar un producto con pedidos asociados 
+-- 4. Intentar eliminar un producto con pedidos asociados (debería fallar)
 DELETE FROM Producto WHERE codigo_producto = 'P005';
 
 -- 5. Eliminar un vivero (borra en cascada sus zonas y empleados)
 DELETE FROM Vivero WHERE nombre_vivero = 'Vivero Oeste';
-
